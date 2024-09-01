@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // Add smth 8
+        // Add smth 9
 
         // add
         // This is the theme of your application.
