@@ -1,7 +1,75 @@
 import 'package:flutter/material.dart';
 
+String getFullName(String firstName, String secondName) =>
+    '$firstName $secondName';
+
 void main() {
   runApp(const MyApp());
+}
+
+class Person {
+  final String firstName;
+  final String lastName;
+
+  Person(this.firstName, this.lastName);
+}
+
+extension FullName on Person {
+  String get fullName => '$firstName $lastName';
+}
+
+class Cat extends Object {
+  final String name;
+  Cat(this.name);
+}
+
+extension Run on Cat {
+  void run() {
+    print('Cat $name is running');
+  }
+}
+
+Stream<String> getName() {
+  return Stream.periodic(const Duration(seconds: 1), (value) {
+    return 'Foo';
+  });
+}
+
+Future<int> heavyFutureThatMultipliesByTwo(int a) {
+  return Future.delayed(const Duration(seconds: 3), () {
+    return a * 2;
+  });
+}
+
+Iterable<int> getOneTwoThree() sync* {
+  // return [1, 2, 3];
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+class PairOfStrings {
+  final String value1;
+  final String value2;
+  PairOfStrings(this.value1, this.value2);
+}
+
+class PairOfIntegers {
+  final int value1;
+  final int value2;
+  PairOfIntegers(this.value1, this.value2);
+}
+
+class Pair<A, B> {
+  final A value1;
+  final B value2;
+  Pair(this.value1, this.value2);
+}
+
+void test() async {
+  final names = Pair('foo', '10');
+  print(names.value1);
+  print(names.value2);
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +78,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    test();
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
