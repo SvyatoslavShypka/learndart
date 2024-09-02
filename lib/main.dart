@@ -68,6 +68,7 @@ class Pair<A, B> {
 
 void test() async {
   final names = Pair('foo', '10');
+
   print(names.value1);
   print(names.value2);
 }
